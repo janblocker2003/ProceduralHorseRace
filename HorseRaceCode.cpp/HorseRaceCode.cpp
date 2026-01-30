@@ -25,3 +25,14 @@ int main(){
 	} //end for
 	} //end while
 } //end main
+
+void advance(int horseNum, int* horses){
+	std::random_device rd;
+	std::uniform_int_distribution<int> dist(0, 1);
+	int coin = dist(rd);
+	if (coin == 1){
+		(*horses)++;
+	} //end if
+} //end adveance function
+
+
