@@ -1,4 +1,5 @@
-#include <random>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 void advance(int horseNum, int* horses);
@@ -11,9 +12,11 @@ int main(){
 	int horseNum[] = {0, 1, 2, 3, 4};
 	int horses[NUM_HORSES] = {0, 0, 0, 0, 0};
 	bool keepGoing = true;
+
+	srand(time(NULL));
+
 	while (keepGoing == true){
-		int i = 0;
-		for (i = 0; i < NUM_HORSES; i++){
+		for (int i = 0; i < NUM_HORSES; i++){
 			advance(i, &horses[i]);
 			printLane(i, &horses[i]);
 			bool horseWon = isWinner(i, &horses[i]);
@@ -28,12 +31,8 @@ int main(){
 } //end main
 
 void advance(int horseNum, int* horses){
-	std::random_device rd;
-	std::uniform_int_distribution<int> dist(0, 1);
-	int coin = dist(rd);
-	if (coin == 1){
-		(*horses)++;
-	} //end if
+	int coin = rand() % 1;
+	horses[horseNum] += coin;
 } //end advance function
 
 void printLane(int horseNum, int* horses){
@@ -48,10 +47,11 @@ void printLane(int horseNum, int* horses){
 	std::cout << std:: endl;
 } //end printLane function
 
+
 bool isWinner(int horseNum, int* horses){
 	bool winner = false;
-	if (*horses >= TRACK_LENGTH){
-	std::cout << "Horse " << horseNum << "is the winner!! " << std::endl;
+	if (horses[horseNum] >= TRACK_LENGTH){
+		std::cout << "Horse " << horseNum << " is the winner!! " << std::endl;
 		bool winner = true;
 	} //end if
 	else{
