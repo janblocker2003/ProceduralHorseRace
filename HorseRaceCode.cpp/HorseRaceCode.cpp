@@ -45,3 +45,14 @@ void printLane(int horseNum, int* horses){
 	std::cout << "\n";
 } //end printLane function
 
+bool isWinner(int horseNum, int* horses){
+	if (*horses > 15){
+	std::cout << "Horse " << horseNum << "is the winner!! " << std::endl;
+		bool isWinner = true;
+	} //end if
+	else{
+		bool isWinner = false;
+	} //end else
+	return(isWinner);
+} //end isWinner function
+
