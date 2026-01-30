@@ -33,6 +33,15 @@ void advance(int horseNum, int* horses){
 	if (coin == 1){
 		(*horses)++;
 	} //end if
-} //end adveance function
+} //end advance function
 
+void printLane(int horseNum, int* horses){
+	std::string track = "...............";
+	track[*horses] = horseNum;
+	int i = 0;
+	for (i = 0; i < 15; i++){
+		std::cout << track[i];
+	} //end for
+	std::cout << "\n";
+} //end printLane function
 
