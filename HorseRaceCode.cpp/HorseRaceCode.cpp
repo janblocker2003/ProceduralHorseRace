@@ -36,7 +36,7 @@ void advance(int horseNum, int* horses){
 } //end advance function
 
 void printLane(int horseNum, int* horses){
-	std::string track = "...............";
+	std::vector<std::string> track = {".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."};
 	track[*horses] = horseNum;
 	int i = 0;
 	for (i = 0; i < 15; i++){
@@ -46,13 +46,14 @@ void printLane(int horseNum, int* horses){
 } //end printLane function
 
 bool isWinner(int horseNum, int* horses){
+	bool winner = false;
 	if (*horses > 15){
 	std::cout << "Horse " << horseNum << "is the winner!! " << std::endl;
-		bool isWinner = true;
+		bool winner = true;
 	} //end if
 	else{
-		bool isWinner = false;
+		bool winner = false;
 	} //end else
-	return(isWinner);
+	return(winner);
 } //end isWinner function
 
