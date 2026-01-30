@@ -9,7 +9,7 @@ const int TRACK_LENGTH = 15;
 const int NUM_HORSES = 5;
 int main(){
 	int horseNum[] = {0, 1, 2, 3, 4};
-	int horses[] = {0, 0, 0, 0, 0};
+	int horses[NUM_HORSES] = {0, 0, 0, 0, 0};
 	bool keepGoing = true;
 	while (keepGoing == true){
 		int i = 0;
@@ -37,16 +37,15 @@ void advance(int horseNum, int* horses){
 } //end advance function
 
 void printLane(int horseNum, int* horses){
-	int i = 0;
-	for (i = 0; i < TRACK_LENGTH; i++){
-		if (i = *horses){
-			std::cout << horseNum << " " << std::endl;
+	for (int i = 0; i < TRACK_LENGTH; i++){
+		if (i == horses[horseNum]){
+			std::cout << horseNum;
 		} //end if
 		else {
-			std::cout << ". ";
+			std::cout << ".";
 		} //end else
 	} //end for
-	std::cout << "\n";
+	std::cout << std:: endl;
 } //end printLane function
 
 bool isWinner(int horseNum, int* horses){
