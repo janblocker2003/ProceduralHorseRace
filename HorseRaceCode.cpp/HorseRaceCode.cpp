@@ -27,7 +27,7 @@ int main(){
 				keepGoing = true;
 			} //end else
 		} //end for
-		std::cout << "Type a letter and press enter for another turn" << std::endl;
+		std::cout << "Press enter for another turn" << std::endl;
 		std::cin.ignore();
 	} //end while
 	return 0;
