@@ -9,7 +9,7 @@ bool isWinner(int horseNum, int* horses);
 const int TRACK_LENGTH = 15;
 const int NUM_HORSES = 5;
 int main(){
-	int horseNum[] = {0, 1, 2, 3, 4};
+	//int horseNum[] = {0, 1, 2, 3, 4};
 	int horses[NUM_HORSES] = {0, 0, 0, 0, 0};
 	bool keepGoing = true;
 
@@ -17,9 +17,9 @@ int main(){
 
 	while (keepGoing == true){
 		for (int i = 0; i < NUM_HORSES; i++){
-			advance(i, &horses[i]);
-			printLane(i, &horses[i]);
-			bool horseWon = isWinner(i, &horses[i]);
+			advance(i, horses);
+			printLane(i, horses);
+			bool horseWon = isWinner(i, horses);
 			if (horseWon == true) {
 				keepGoing = false;
 			} //end if
@@ -27,11 +27,19 @@ int main(){
 				keepGoing = true;
 			} //end else
 		} //end for
+		bool pushed = false;
+		std::cout << "Type a letter and press enter for another turn" << std::endl;
+		std::cin >> pushed;
+		if (std::cin.fail()){
+			std::cin.clear();
+			std::cin.ignore(256, '\n');
+		} //end if
 	} //end while
+	return 0;
 } //end main
 
 void advance(int horseNum, int* horses){
-	int coin = rand() % 1;
+	int coin = rand() % 2;
 	horses[horseNum] += coin;
 } //end advance function
 
