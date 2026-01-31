@@ -27,13 +27,8 @@ int main(){
 				keepGoing = true;
 			} //end else
 		} //end for
-		bool pushed = false;
 		std::cout << "Type a letter and press enter for another turn" << std::endl;
-		std::cin >> pushed;
-		if (std::cin.fail()){
-			std::cin.clear();
-			std::cin.ignore(256, '\n');
-		} //end if
+		std::cin.ignore();
 	} //end while
 	return 0;
 } //end main
